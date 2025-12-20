@@ -22,7 +22,7 @@ public class ImprovedSearchTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Первый мобильный тест на мобилку с appium+selenide")
+    @DisplayName("Первый мобильный тест на мобилку с appium+selenide (НЕГАТИВНЫЙ)")
     void successfulSearchTestCompleteNegative() {
 
         $(accessibilityId("Search Wikipedia")).click();
