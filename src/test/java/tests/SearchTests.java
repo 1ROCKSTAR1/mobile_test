@@ -3,6 +3,7 @@ package tests;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class SearchTests {
 
     @Test
+    @DisplayName("Базвый первый мобильный тест без оптимизации")
     void successfulSearchTestComplete() throws MalformedURLException, InterruptedException {
         // ========== 1. НАСТРОЙКА КАПАБИЛИТИ ==========
         UiAutomator2Options options = new UiAutomator2Options();
