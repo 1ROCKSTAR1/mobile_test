@@ -1,6 +1,8 @@
 package tests.ios;
 
-public class FirstTests extends BaseTest {
+import tests.BaseIosTest;
+
+public class FirstTests extends BaseIosTest {
 
 
 }

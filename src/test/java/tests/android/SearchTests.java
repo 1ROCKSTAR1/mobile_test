@@ -19,7 +19,7 @@ import java.util.Map;
 public class SearchTests {
 
     @Test
-    @DisplayName("Базвый первый мобильный тест без оптимизации")
+    @DisplayName("Базовый первый мобильный тест без оптимизации")
     void successfulSearchTestComplete() throws MalformedURLException, InterruptedException {
         // ========== 1. НАСТРОЙКА КАПАБИЛИТИ ==========
         UiAutomator2Options options = new UiAutomator2Options();

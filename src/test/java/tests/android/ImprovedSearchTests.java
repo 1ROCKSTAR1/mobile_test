@@ -2,6 +2,7 @@ package tests.android;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import tests.BaseAndroidTest;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
@@ -10,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.*;
 
 
-public class ImprovedSearchTests extends BaseTest {
+public class ImprovedSearchTests extends BaseAndroidTest {
 
     @Test
     @DisplayName("Первый мобильный тест на мобилку с appium+selenide")
