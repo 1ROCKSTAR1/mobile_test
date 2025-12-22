@@ -18,7 +18,7 @@ public class ImprovedSearchTests extends BaseTest {
         $(accessibilityId("Search Wikipedia")).click();
         $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
 
-        $$(className("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
+        $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
     }
 
     @Test
@@ -28,6 +28,6 @@ public class ImprovedSearchTests extends BaseTest {
         $(accessibilityId("Search Wikipedia")).click();
         $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys(";lkj;lkhjljkgyy");
 
-        $$(className("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
+        $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
     }
 }
