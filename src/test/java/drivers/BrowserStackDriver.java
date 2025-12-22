@@ -12,7 +12,12 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.System.getProperty;
+
 public class BrowserStackDriver implements WebDriverProvider {
+
+    private static final String BROWSERSTACK_DEVICE = getProperty("browserstack.device", "Samsung Galaxy S22 Ultra");
+    private static final String BROWSERSTACK_OS_VERSION = getProperty("browserstack.os_version", "12.0");
 
     @NonNull
     @Override
@@ -22,15 +27,15 @@ public class BrowserStackDriver implements WebDriverProvider {
         Map<String, Object> bstackOptions = new HashMap<>();
         bstackOptions.put("userName", "alexv_gQHKd7");
         bstackOptions.put("accessKey", "B1ZjyFYFzuFN4KBRChiC");
-        bstackOptions.put("deviceName", "Samsung Galaxy S22 Ultra");
-        bstackOptions.put("osVersion", "12.0");
+        bstackOptions.put("deviceName", BROWSERSTACK_DEVICE);
+        bstackOptions.put("osVersion", BROWSERSTACK_OS_VERSION);
         bstackOptions.put("projectName", "First Java Project");
         bstackOptions.put("buildName", "browserstack-build-1");
         bstackOptions.put("sessionName", "first_test");
 
         // Ключевые capabilities БЕЗ префикса appium:
         options.setCapability("platformName", "Android");
-        options.setCapability("app", "bs://sample.app"); // Оставляем демо-приложение
+        options.setCapability("app", "bs://sample.app");
 
         // Appium-специфичные настройки
         options.setCapability("appium:automationName", "UiAutomator2");
