@@ -1,8 +1,7 @@
-package tests.android;
+package android;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import tests.BaseAndroidTest;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
@@ -24,7 +23,7 @@ public class ImprovedSearchTests extends BaseAndroidTest {
     }
 
     @Test
-    @DisplayName("Первый мобильный тест на мобилку с appium+selenide (НЕГАТИВНЫЙ)")
+    @DisplayName("Мобильный тест на мобилку с appium+selenide (НЕГАТИВНЫЙ)")
     void successfulSearchTestCompleteNegative() {
 
         $(accessibilityId("Search Wikipedia")).click();
@@ -34,7 +33,7 @@ public class ImprovedSearchTests extends BaseAndroidTest {
     }
 
     @Test
-    @DisplayName("Первый мобильный тест на мобилку с appium+selenide (поиск статьи)")
+    @DisplayName("Мобильный тест на мобилку с appium+selenide (поиск статьи)")
     void successfulSearchTestArticle() {
 
         $(accessibilityId("Search Wikipedia")).click();
