@@ -1,8 +1,8 @@
-package tests;
+package tests.ios;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.BrowserStackDriver;
+import drivers.BrowserStackIosDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -16,19 +16,22 @@ public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserStackDriver.class.getName();
-        Configuration.browserSize = null; // обязательный костыль №1
+
+        Configuration.browser = BrowserStackIosDriver.class.getName();
+        Configuration.browserSize = null; // Костыль №1
         Configuration.timeout = 30000;
     }
 
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open(); // обязательный костыль №2
+        open(); // Костыль №2
     }
+
     @AfterEach
     void afterEach() {
         Attach.screenshotAs("Last screenshot");
         closeWebDriver();
     }
 }
+
