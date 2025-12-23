@@ -14,7 +14,7 @@ public class MainPage {
     realSearchField = $(id("org.wikipedia.alpha:id/search_src_text")),
     titleArticle = $(id("pcs-edit-section-title-description"));
 
-    private final ElementsCollection searchResults = $$(id("pcs-edit-section-title-description"));
+    private final ElementsCollection searchResults = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
 
     public MainPage clickOnFakeSearchField() {
         searchField.click();
