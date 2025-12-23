@@ -1,7 +1,10 @@
 package android;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wikipages.ArticlePage;
+import wikipages.MainPage;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
@@ -11,6 +14,9 @@ import static io.appium.java_client.AppiumBy.*;
 
 
 public class ImprovedSearchTests extends BaseAndroidTest {
+
+    MainPage mainPage = new MainPage();
+    ArticlePage articlePage = new ArticlePage();
 
     @Test
     @DisplayName("Первый мобильный тест на мобилку с appium+selenide")
@@ -44,5 +50,32 @@ public class ImprovedSearchTests extends BaseAndroidTest {
                 .click();
 
         $(id("pcs-edit-section-title-description")).shouldHave(text("Competition"));
+    }
+
+    @Test
+    @DisplayName("Мобильный тест на POM. Проверка что результат не пустой")
+    void searchEmptyTest() {
+
+        boolean actualResult = mainPage
+                .clickOnFakeSearchField()
+                .sendSearchPhraseInRealSearchField("NASCAR")
+                .checkStatusTheFinalString("NASCAR");
+
+        Assertions.assertTrue(actualResult);
+    }
+
+    @Test
+    @DisplayName("Мобильный тест на POM. Проверка что статья содержит искомое значение")
+    void searchArticleTest() {
+
+        mainPage
+                .clickOnFakeSearchField()
+                .sendSearchPhraseInRealSearchField("NASCAR")
+                .clickOnFirstItem();
+
+        String actualArticleHeader = articlePage
+                .getArticleHeader();
+
+        Assertions.assertEquals("competition", actualArticleHeader);
     }
 }
