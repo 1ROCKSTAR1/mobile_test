@@ -28,9 +28,26 @@ public class BaseAndroidTest {
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open(); // обязательный костыль №2
-        $(AppiumBy.xpath("//*[@text='Skip']"))
-                .shouldBe(visible, Duration.ofSeconds(10))
-                .click();
+        // Обновленный обработчик
+        try {
+            // Проверяем Skip (быстрая проверка)
+            if ($(AppiumBy.xpath("//*[@text='Skip']")).isDisplayed()) {
+                $(AppiumBy.xpath("//*[@text='Skip']")).click();
+                return;
+            }
+
+            // Проверяем Learn more (быстрая проверка)
+            if ($(AppiumBy.xpath("//*[@text='Learn more']")).isDisplayed()) {
+                $(AppiumBy.xpath("//*[@text='Learn more']")).click();
+                // Ждем и нажимаем Skip если появился
+                $(AppiumBy.xpath("//*[@text='Skip']"))
+                        .shouldBe(visible, Duration.ofSeconds(8))
+                        .click();
+                return;
+            }
+        } catch (Exception e) {
+            // Ничего не делаем - onboarding не обнаружен
+        }
     }
 
     @AfterEach
