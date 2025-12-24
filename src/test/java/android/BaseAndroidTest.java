@@ -37,8 +37,8 @@ public class BaseAndroidTest {
             }
 
             // Проверяем Learn more (быстрая проверка)
-            if ($(AppiumBy.xpath("//*[@text='Learn more']")).isDisplayed()) {
-                $(AppiumBy.xpath("//*[@text='Learn more']")).click();
+            if ($(AppiumBy.xpath("//*[@text='Get started']")).isDisplayed()) {
+                $(AppiumBy.xpath("//*[@text='Get started']")).click();
                 // Ждем и нажимаем Skip если появился
                 $(AppiumBy.xpath("//*[@text='Skip']"))
                         .shouldBe(visible, Duration.ofSeconds(8))
