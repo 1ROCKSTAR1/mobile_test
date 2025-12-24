@@ -35,7 +35,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
 
         // Ключевые capabilities БЕЗ префикса appium:
         options.setCapability("platformName", "Android");
-        options.setCapability("app", "bs://sample.app");
+        options.setCapability("app", "bs://06a864b838d1bfd1c9dfdcb203aa3778990a4a5a");
 
         // Appium-специфичные настройки
         options.setCapability("appium:automationName", "UiAutomator2");
