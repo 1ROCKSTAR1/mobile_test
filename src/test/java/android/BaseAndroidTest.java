@@ -28,7 +28,7 @@ public class BaseAndroidTest {
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open(); // обязательный костыль №2
-        $(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_skip_button"))
+        $(AppiumBy.xpath("//*[@text='Skip']"))
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .click();
     }
