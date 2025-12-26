@@ -25,8 +25,8 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         UiAutomator2Options options = new UiAutomator2Options();
 
         Map<String, Object> bstackOptions = new HashMap<>();
-        bstackOptions.put("userName", "alexv_gQHKd7");
-        bstackOptions.put("accessKey", "B1ZjyFYFzuFN4KBRChiC");
+        bstackOptions.put("userName", "idol_LmFU3s");
+        bstackOptions.put("accessKey", "Q4pekLModwXLJYxWEYa3");
         bstackOptions.put("deviceName", BROWSERSTACK_DEVICE);
         bstackOptions.put("osVersion", BROWSERSTACK_OS_VERSION);
         bstackOptions.put("projectName", "First Java Project");
@@ -35,7 +35,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
 
         // Ключевые capabilities БЕЗ префикса appium:
         options.setCapability("platformName", "Android");
-        options.setCapability("app", "bs://06a864b838d1bfd1c9dfdcb203aa3778990a4a5a");
+        options.setCapability("app", "bs://sample.app");
 
         // Appium-специфичные настройки
         options.setCapability("appium:automationName", "UiAutomator2");
