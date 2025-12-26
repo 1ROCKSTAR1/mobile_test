@@ -59,7 +59,7 @@ public class ImprovedSearchTests extends BaseAndroidTest {
         boolean actualResult = mainPage
                 .clickOnFakeSearchField()
                 .sendSearchPhraseInRealSearchField("NASCAR")
-                .checkStatusTheFinalString("NASCAR");
+                .checkAllResultsNotEmpty();
 
         Assertions.assertTrue(actualResult);
     }

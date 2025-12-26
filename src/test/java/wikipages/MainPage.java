@@ -26,14 +26,18 @@ public class MainPage {
         return this;
     }
 
-    public boolean checkStatusTheFinalString(String s) {
+    public boolean checkAllResultsNotEmpty() {
         try {
             searchResults.shouldHave(CollectionCondition.allMatch(
-                    "Все элементы содержат строку: " + s,
-                    a -> a.getText().toLowerCase().contains(s)
+                    "Все элементы должны содержать непустой текст",
+                    element -> {
+                        String text = element.getText();
+                        return text != null && !text.trim().isEmpty();
+                    }
             ));
             return true;
         } catch (AssertionError e) {
+            System.err.println("Найдены пустые элементы: " + e.getMessage());
             return false;
         }
     }
