@@ -1,8 +1,10 @@
 package drivers;
 
+import android.TestConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.aeonbits.owner.ConfigFactory;
 import org.jspecify.annotations.NonNull;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,9 @@ import static java.lang.System.getProperty;
 
 public class BrowserStackAndroidDriver implements WebDriverProvider {
 
+    private static final TestConfig config =
+            ConfigFactory.create(TestConfig.class, System.getProperties());
+
     private static final String BROWSERSTACK_DEVICE = getProperty("browserstack.device", "Samsung Galaxy S22 Ultra");
     private static final String BROWSERSTACK_OS_VERSION = getProperty("browserstack.os_version", "12.0");
 
@@ -25,8 +30,8 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         UiAutomator2Options options = new UiAutomator2Options();
 
         Map<String, Object> bstackOptions = new HashMap<>();
-        bstackOptions.put("userName", "idol_LmFU3s");
-        bstackOptions.put("accessKey", "Q4pekLModwXLJYxWEYa3");
+        bstackOptions.put("userName", config.id());
+        bstackOptions.put("accessKey", config.key());
         bstackOptions.put("deviceName", BROWSERSTACK_DEVICE);
         bstackOptions.put("osVersion", BROWSERSTACK_OS_VERSION);
         bstackOptions.put("projectName", "First Java Project");

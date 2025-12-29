@@ -6,6 +6,7 @@ import drivers.BrowserStackAndroidDriver;
 import helpers.Attach;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BaseAndroidTest {
+
+    private static final TestConfig config =
+            ConfigFactory.create(TestConfig.class, System.getProperties());
 
     @BeforeAll
     static void beforeAll() {

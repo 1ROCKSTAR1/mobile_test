@@ -2,6 +2,7 @@ package android;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import wikipages.ArticlePage;
 import wikipages.MainPage;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.*;
 
-
+@Tag("mobile_owner")
 public class ImprovedSearchTests extends BaseAndroidTest {
 
     MainPage mainPage = new MainPage();
@@ -43,13 +44,13 @@ public class ImprovedSearchTests extends BaseAndroidTest {
     void successfulSearchTestArticle() {
 
         $(accessibilityId("Search Wikipedia")).click();
-        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Formula-1");
+        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("NASCAR");
 
         $$(id("org.wikipedia.alpha:id/page_list_item_title"))
                 .get(0)
                 .click();
 
-        $(id("pcs-edit-section-title-description")).shouldHave(text("Competition"));
+        $(className("android.widget.TextView")).shouldHave(text("NASCAR"));
     }
 
     @Test
@@ -76,6 +77,6 @@ public class ImprovedSearchTests extends BaseAndroidTest {
         String actualArticleHeader = articlePage
                 .getArticleHeader();
 
-        Assertions.assertEquals("competition", actualArticleHeader);
+        Assertions.assertEquals("NASCAR", actualArticleHeader);
     }
 }

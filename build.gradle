@@ -3,6 +3,10 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 group = 'com.aastri'
 version = '1.0-SNAPSHOT'
 
@@ -42,5 +46,11 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task owner_test(type: Test) {
+    useJUnitPlatform() {
+        includeTags("mobile_owner")
     }
 }

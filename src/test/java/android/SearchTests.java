@@ -3,7 +3,9 @@ package android;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,13 +23,17 @@ public class SearchTests {
     @Test
     @DisplayName("Базовый первый мобильный тест без оптимизации")
     void successfulSearchTestComplete() throws MalformedURLException, InterruptedException {
+
+        final TestConfig config =
+                ConfigFactory.create(TestConfig.class, System.getProperties());
+
         // ========== 1. НАСТРОЙКА КАПАБИЛИТИ ==========
         UiAutomator2Options options = new UiAutomator2Options();
 
         // Настройки BrowserStack (все в bstack:options)
         Map<String, Object> bstackOptions = new HashMap<>();
-        bstackOptions.put("userName", "alexv_gQHKd7");
-        bstackOptions.put("accessKey", "B1ZjyFYFzuFN4KBRChiC");
+        bstackOptions.put("userName", config.id());
+        bstackOptions.put("accessKey", config.key());
         // Используем устройство из примера BrowserStack, которое точно поддерживается
         bstackOptions.put("deviceName", "Samsung Galaxy S22 Ultra"); // Изменили устройство
         bstackOptions.put("osVersion", "12.0"); // Исправляем версию ОС для нового устройства

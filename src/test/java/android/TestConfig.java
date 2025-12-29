@@ -8,8 +8,10 @@ import org.aeonbits.owner.Config;
 public interface TestConfig extends Config {
 
     @Key("id")
+    @DefaultValue("idol_LmFU3s")
     String id();
 
     @Key("key")
+    @DefaultValue("Q4pekLModwXLJYxWEYa3")
     String key();
 }
