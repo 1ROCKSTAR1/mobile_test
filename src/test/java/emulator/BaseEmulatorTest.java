@@ -1,31 +1,33 @@
-package ios;
+package emulator;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.BrowserStackIosDriver;
+import drivers.LocalDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
-public class BaseIosTest {
+public class BaseEmulatorTest {
+
+ //   private static final TestConfig config =
+ //           ConfigFactory.create(TestConfig.class, System.getProperties());
 
     @BeforeAll
     static void beforeAll() {
-
-        Configuration.browser = BrowserStackIosDriver.class.getName();
-        Configuration.browserSize = null; // Костыль №1
-        Configuration.timeout = 30000;
+        Configuration.browser = LocalDriver.class.getName();
+        Configuration.browserSize = null; // обязательный костыль №1
+        Configuration.timeout = 10000;
     }
 
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open(); // Костыль №2
+        open(); // обязательный костыль №2
+
     }
 
     @AfterEach
@@ -34,4 +36,3 @@ public class BaseIosTest {
         closeWebDriver();
     }
 }
-
