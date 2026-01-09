@@ -41,6 +41,13 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+
+    // Передаем системные свойства в тесты
+    systemProperties System.getProperties()
+
+    // Настройки по умолчанию
+    systemProperty 'env', System.getProperty('env', 'local')
+
     systemProperties(System.getProperties())
     testLogging {
         lifecycle {
@@ -53,5 +60,17 @@ tasks.withType(Test) {
 task owner_test(type: Test) {
     useJUnitPlatform() {
         includeTags("mobile_owner")
+    }
+}
+
+task browserstack_test(type: Test) {
+    useJUnitPlatform() {
+        includeTags("browserstack")
+    }
+}
+
+task emulator_test(type: Test) {
+    useJUnitPlatform() {
+        includeTags("emulator")
     }
 }

@@ -2,6 +2,7 @@ package android;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.TestConfig;
 import drivers.BrowserStackAndroidDriver;
 import helpers.Attach;
 import io.appium.java_client.AppiumBy;
@@ -16,7 +17,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class BaseAndroidTest {
+public class BaseBrowserstackTest {
 
     private static final TestConfig config =
             ConfigFactory.create(TestConfig.class, System.getProperties());

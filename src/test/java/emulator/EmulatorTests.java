@@ -2,12 +2,14 @@ package emulator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import wikipages.MainPage;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class Tests extends BaseEmulatorTest {
+@Tag("emulator")
+public class EmulatorTests extends BaseEmulatorTest {
 
     MainPage mainPage = new MainPage();
 

@@ -9,12 +9,11 @@ import wikipages.MainPage;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static io.appium.java_client.AppiumBy.*;
 
-@Tag("mobile_owner")
-public class ImprovedSearchTests extends BaseAndroidTest {
+@Tag("browserstack")
+public class BrowserstackTests extends BaseBrowserstackTest {
 
     MainPage mainPage = new MainPage();
     ArticlePage articlePage = new ArticlePage();
