@@ -3,6 +3,8 @@ package wikipages;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.appium.java_client.AppiumBy;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
@@ -12,7 +14,9 @@ public class MainPage {
 
     private final SelenideElement searchField = $(accessibilityId("Search Wikipedia")),
     realSearchField = $(id("org.wikipedia.alpha:id/search_src_text")),
-    titleArticle = $(id("pcs-edit-section-title-description"));
+    titleArticle = $(id("pcs-edit-section-title-description")),
+    savedTab = $(id("org.wikipedia.alpha:id/nav_tab_reading_lists")),
+    moreTab = $(AppiumBy.id("org.wikipedia.alpha:id/nav_tab_more"));
 
     private final ElementsCollection searchResults = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
 
@@ -52,6 +56,16 @@ public class MainPage {
                 .click();
 
         return this;
+    }
+
+    public SavedTab clickOnSavedTab() {
+        savedTab.click();
+        return new SavedTab();
+    }
+
+    public MoreTab clickOnMoreTab() {
+        moreTab.click();
+        return new MoreTab();
     }
 }
 
