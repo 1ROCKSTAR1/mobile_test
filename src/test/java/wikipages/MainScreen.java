@@ -4,13 +4,15 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import wikipages.components.MoreTab;
+import wikipages.components.SavedTab;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 
-public class MainPage {
+public class MainScreen {
 
     private final SelenideElement searchField = $(accessibilityId("Search Wikipedia")),
     realSearchField = $(id("org.wikipedia.alpha:id/search_src_text")),
@@ -20,12 +22,12 @@ public class MainPage {
 
     private final ElementsCollection searchResults = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
 
-    public MainPage clickOnFakeSearchField() {
+    public MainScreen clickOnFakeSearchField() {
         searchField.click();
         return this;
     }
 
-    public MainPage sendSearchPhraseInRealSearchField(String s) {
+    public MainScreen sendSearchPhraseInRealSearchField(String s) {
         realSearchField.sendKeys(s);
         return this;
     }
@@ -50,7 +52,7 @@ public class MainPage {
         return titleArticle.getText();
     }
 
-    public MainPage clickOnFirstItem() {
+    public MainScreen clickOnFirstItem() {
         searchResults
                 .get(0)
                 .click();

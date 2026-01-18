@@ -1,6 +1,7 @@
 package android;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.TestConfig;
 import drivers.BrowserStackAndroidDriver;
@@ -57,7 +58,9 @@ public class BaseBrowserstackTest {
 
     @AfterEach
     void afterEach() {
+        String sessionId = Selenide.sessionId().toString();
         Attach.screenshotAs("Last screenshot");
+        Attach.addVideo(sessionId);
         closeWebDriver();
     }
 }

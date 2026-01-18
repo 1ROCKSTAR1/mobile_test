@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class SettingsPage {
+public class SettingsScreen {
 
     private final SelenideElement settingsTab = $(AppiumBy.xpath("//android.widget.TextView[@text='Settings']")),
     showLinkPreviewsSwitch = $(AppiumBy.xpath("(//android.widget.Switch[@resource-id='org.wikipedia.alpha:id/switchWidget'])[1]")),
@@ -27,7 +27,7 @@ public class SettingsPage {
         return !preferOfflineSwitch.is(checked);
     }
 
-    public SettingsPage scrollToPreferOffline() {
+    public SettingsScreen scrollToPreferOffline() {
         Dimension size = getWebDriver().manage().window().getSize();
 
         // Используем scrollGesture

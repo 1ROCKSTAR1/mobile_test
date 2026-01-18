@@ -4,20 +4,20 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import wikipages.MainPage;
+import wikipages.MainScreen;
 
 import static com.codeborne.selenide.Selenide.*;
 
 @Tag("emulator")
 public class EmulatorTests extends BaseEmulatorTest {
 
-    MainPage mainPage = new MainPage();
+    MainScreen mainScreen = new MainScreen();
 
     @Test
     @DisplayName("Мобильный тест на POM. Проверка что результат не пустой")
     void searchEmptyTest() {
         back();
-        boolean actualResult = mainPage
+        boolean actualResult = mainScreen
                 .clickOnFakeSearchField()
                 .sendSearchPhraseInRealSearchField("NASCAR")
                 .checkAllResultsNotEmpty();
@@ -29,7 +29,7 @@ public class EmulatorTests extends BaseEmulatorTest {
     @DisplayName("Мобильный тест на POM. Проверка хэдера вкладки 'saved' ")
     void savedTabTestPOM() {
         back();
-        String expectedHeader = mainPage
+        String expectedHeader = mainScreen
                 .clickOnSavedTab()
                 .getSavedTabHeader();
 
@@ -40,7 +40,7 @@ public class EmulatorTests extends BaseEmulatorTest {
     @DisplayName("Мобильный тест на POM. Проверка хэдера вкладки 'settings' ")
     void savedSettingsTestPOM() {
         back();
-        String expectedHeader = mainPage
+        String expectedHeader = mainScreen
                 .clickOnMoreTab()
                 .clickOnSettings()
                 .getSettingsTabHeader();
@@ -52,7 +52,7 @@ public class EmulatorTests extends BaseEmulatorTest {
     @DisplayName("Мобильный тест на POM. Проверка switch 'show link previews' ")
     void showPreviewTestPOM() {
         back();
-        boolean expectedShowPreviewCondition = mainPage
+        boolean expectedShowPreviewCondition = mainScreen
                 .clickOnMoreTab()
                 .clickOnSettings()
                 .checkShowPreviewIsTrue();
@@ -64,7 +64,7 @@ public class EmulatorTests extends BaseEmulatorTest {
     @DisplayName("Мобильный тест на POM. Проверка switch 'prefer offline' ")
     void preferOfflineTestPOM() {
         back();
-        boolean expectedPreferOfflineCondition = mainPage
+        boolean expectedPreferOfflineCondition = mainScreen
                 .clickOnMoreTab()
                 .clickOnSettings()
                 .scrollToPreferOffline()

@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import wikipages.ArticlePage;
-import wikipages.MainPage;
+import wikipages.ArticleScreen;
+import wikipages.MainScreen;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
@@ -15,8 +15,8 @@ import static io.appium.java_client.AppiumBy.*;
 @Tag("browserstack")
 public class BrowserstackTests extends BaseBrowserstackTest {
 
-    MainPage mainPage = new MainPage();
-    ArticlePage articlePage = new ArticlePage();
+    MainScreen mainScreen = new MainScreen();
+    ArticleScreen articlePage = new ArticleScreen();
 
     @Test
     @DisplayName("Первый мобильный тест на мобилку с appium+selenide")
@@ -56,7 +56,7 @@ public class BrowserstackTests extends BaseBrowserstackTest {
     @DisplayName("Мобильный тест на POM. Проверка что результат не пустой")
     void searchEmptyTest() {
 
-        boolean actualResult = mainPage
+        boolean actualResult = mainScreen
                 .clickOnFakeSearchField()
                 .sendSearchPhraseInRealSearchField("NASCAR")
                 .checkAllResultsNotEmpty();
@@ -68,7 +68,7 @@ public class BrowserstackTests extends BaseBrowserstackTest {
     @DisplayName("Мобильный тест на POM. Проверка что статья содержит искомое значение")
     void searchArticleTest() {
 
-        mainPage
+        mainScreen
                 .clickOnFakeSearchField()
                 .sendSearchPhraseInRealSearchField("NASCAR")
                 .clickOnFirstItem();

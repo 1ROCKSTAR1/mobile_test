@@ -4,9 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.className;
-import static io.appium.java_client.AppiumBy.id;
 
-public class ArticlePage {
+public class ArticleScreen {
 
     private SelenideElement articleHeader = $(className("android.widget.TextView"));
 
