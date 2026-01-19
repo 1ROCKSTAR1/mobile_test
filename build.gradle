@@ -63,14 +63,25 @@ task owner_test(type: Test) {
     }
 }
 
+// Запуск BrowserStack тестов
 task browserstack_test(type: Test) {
-    useJUnitPlatform() {
+    useJUnitPlatform {
         includeTags("browserstack")
+    }
+    systemProperties System.getProperties()
+    systemProperty "env", "new" // Используем new.properties для BrowserStack
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        showStandardStreams = true
     }
 }
 
+// Запуск эмулятор тестов
 task emulator_test(type: Test) {
-    useJUnitPlatform() {
+    useJUnitPlatform {
         includeTags("emulator")
     }
+    systemProperties System.getProperties()
+    systemProperty "env", "local" // Используем local.properties для эмулятора
 }

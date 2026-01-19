@@ -1,6 +1,6 @@
 package drivers;
 
-import config.TestConfig;
+import config.BSConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class BrowserStackAndroidDriver implements WebDriverProvider {
 
-    private static final TestConfig config =
-            ConfigFactory.create(TestConfig.class, System.getProperties());
+    private static final BSConfig config =
+            ConfigFactory.create(BSConfig.class, System.getProperties());
     @NonNull
     @Override
     public WebDriver createDriver(@NonNull Capabilities capabilities) {
@@ -28,7 +28,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         System.out.println("Key: " + config.browserstackKey());
         System.out.println("Device: " + config.browserstackDevice());
         System.out.println("OS Version: " + config.browserstackOsVersion());
-        System.out.println("App: " + config.app());
+        System.out.println("App: " + config.browserstackApp());
         System.out.println("==========================");
 
         Map<String, Object> bstackOptions = new HashMap<>();
@@ -47,7 +47,7 @@ public class BrowserStackAndroidDriver implements WebDriverProvider {
         // Основные capabilities (W3C стандарт)
         options.setCapability("platformName", "android");
         options.setCapability("appium:automationName", "uiautomator2");
-        options.setCapability("appium:app", config.app());
+        options.setCapability("appium:app", config.browserstackApp());
 
         // BrowserStack options
         options.setCapability("bstack:options", bstackOptions);

@@ -3,7 +3,7 @@ package android;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.TestConfig;
+import config.BSConfig;
 import drivers.BrowserStackAndroidDriver;
 import helpers.Attach;
 import io.appium.java_client.AppiumBy;
@@ -20,8 +20,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BaseBrowserstackTest {
 
-    private static final TestConfig config =
-            ConfigFactory.create(TestConfig.class, System.getProperties());
+    private static final BSConfig config =
+            ConfigFactory.create(BSConfig.class, System.getProperties());
 
     @BeforeAll
     static void beforeAll() {

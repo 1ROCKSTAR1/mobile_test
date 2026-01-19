@@ -2,7 +2,7 @@ package emulator;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.TestConfig;
+import config.EmulatorConfig;
 import drivers.EmulatorDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -15,8 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BaseEmulatorTest {
 
-    private static final TestConfig config =
-            ConfigFactory.create(TestConfig.class, System.getProperties());
+    private static final EmulatorConfig config =
+            ConfigFactory.create(EmulatorConfig.class, System.getProperties());
 
     @BeforeAll
     static void beforeAll() {
