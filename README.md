@@ -20,9 +20,9 @@
 Учебный фреймворк для автоматизированного тестирования мобильных приложений. Проект реализует подход к тестированию UI слоя. Есть возможность запуска тестов на разных окружениях: browserstack servise или локально на эмуляторе.
 
 ## 🚀 Запуск тестов из терминала
-Browserstack (gradle clean browserstack_tests)
+Browserstack (gradle clean browserstack_test -Denv=new)
 
-Эмулятор (gradle clean emulator_tests)
+Эмулятор (gradle clean emulator_test -Denv=local)
 
 # Структура проекта
 
@@ -34,7 +34,8 @@ Browserstack (gradle clean browserstack_tests)
     │       │   │   ├── BaseBrowserstackTest.java
     │       │   │   └── BrowserstackTests.java
     │       │   ├── 📁 config/
-    │       │   │   └── TestConfig.java
+    |       |   |   ├── BSConfig.java
+    │       │   │   └── EmulatorConfig.java
     │       │   ├── 📁 drivers/
     │       │   │   ├── BrowserStackAndroidDriver.java
     │       │   │   └── EmulatorDriver.java
@@ -42,13 +43,15 @@ Browserstack (gradle clean browserstack_tests)
     │       │   │   ├── BaseEmulatorTest.java
     │       │   │   └── EmulatorTests.java
     │       │   ├── 📁 helpers/
-    │       │   │   └── Attach.java
+    │       │   │   ├── Attach.java
+    |       |   |   └── Browserstack.java
     │       │   └── 📁 wikipages/
-    │       │       ├── ArticlePage.java
-    │       │       ├── MainPage.java
-    │       │       ├── MoreTab.java
-    │       │       ├── SavedTab.java
-    │       │       └── SettingsPage.java
+    │       │       └──📁 components/
+    |       |       |   ├── MoreTab.java
+    |       │       |   └── SavedTab.java
+    │       │       ├── ArticleScreen.java
+    │       │       ├── MainScreen.java
+    │       │       └── SettingsScreen.java
     │       └── 📁 resources/
     │           └── 📁 apps/
     │               ├── app-alpha-universal-release.apk 
